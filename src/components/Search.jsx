@@ -2,15 +2,20 @@ import React,{useEffect,useState} from 'react';
 import {Links} from './Links'
 import { useDebounce } from 'use-debounce';
 import { useStateContext } from '../contexts/StateContextProvider';
+import { useNavigate } from 'react-router-dom';
 
 export let Search = ()=>{
 
     const [text,setText] = useState('');
     const {setsearchTerm} = useStateContext();
     const [debouncedValue] = useDebounce(text,300);
+    let Navigate = useNavigate()
 
     useEffect(()=>{
-      if(debouncedValue) setsearchTerm(debouncedValue)
+      if(debouncedValue){
+        return setsearchTerm(debouncedValue),
+         Navigate('/search')
+      }
     },[debouncedValue])
 
     return(
