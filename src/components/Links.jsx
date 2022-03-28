@@ -3,6 +3,7 @@ import {NavLink,Link} from 'react-router-dom';
 
 
 let links = [
+    {url: '/', text: '🏠 HOME'},
     {url: '/search', text: '🔎 All'},
     {url: '/image', text: '📷 IMAGES'},
     {url: '/news', text: '📰 NEWS'},
